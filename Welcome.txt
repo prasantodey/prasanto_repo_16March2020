@@ -1,2 +1,4 @@
 Welcome to DevOps Training
 File has been modified
+
+File has been pushed into the repository
