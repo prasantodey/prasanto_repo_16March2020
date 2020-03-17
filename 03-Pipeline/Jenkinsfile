@@ -34,7 +34,7 @@ node {
 
 def notify(status){
     emailext (
-      to: "amitvashist7@gmail.com",
+      to: "prasantodey8@gmail.com",
       subject: "${status}: Job '${env.JOB_NAME}[${env.BUILD_NUMBER}]'",
       body: """<p>"${status}: Job '${env._JOB_NAME}[${env.BUILD_NUMBER}]'"</p>""",
  )
