@@ -2,7 +2,7 @@ node {
 
   notify('Started')
       stage('Git CheckOut') {
-         git 'https://github.com/prasantodey/prasanto_repo_16March2020.git'
+         git 'https://github.com/amitvashisttech/devops-acc-2020March16.git'
          
       }
       
