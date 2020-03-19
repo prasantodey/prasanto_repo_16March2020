@@ -1,0 +1,85 @@
+    1  cd devops-acc-2020March16/
+    2  ls
+    3  mkdir 04-Ansible
+    4  ls
+    5  cd 04-Ansible/
+    6  ls
+    7  mkdir 01-Inventory
+    8  cd 01-Inventory/
+    9  ls
+   10  cat /etc/hosts
+   11  cat /etc/hosts | grep -i k
+   12  ls
+   13  ls -ltr /etc/ansible/ls
+   14  ls
+   15  cat /etc/hosts
+   16  vi inventory
+   17  ssh vagrant@172.42.42.101
+   18  ls
+   19  ansible all -i inventory -u vagrant -m ping -k  
+   20  ls
+   21  vi ansible.cfg
+   22  grep -i checking /etc/ansible/ansible.cfg 
+   23  ansible all -i inventory -u vagrant -m ping -k  
+   24  ansible-doc -l 
+   25  ansible-doc ping 
+   26  ls
+   27  vi ansible.cfg 
+   28  ansible all -u vagrant -m ping -k  
+   29  ls
+   30  vi inventory 
+   31  ansible all -u vagrant -m ping -k  
+   32  ansible all -i inventory -u vagrant -m ping -k  
+   33  ansible -u vagrant -m ping -k  
+   34  ansible webserver -u vagrant -m ping -k  
+   35  ansible ansible -u vagrant -m ping -k  
+   36  ansible dbserver -u vagrant -m ping -k  
+   37  ansible dbserver -u vagrant -m command -a 'df -h' -k  
+   38  ansible all -u vagrant -m command -a 'df -h' -k  
+   39  ansible all -u vagrant -m command -a 'arch' -k  
+   40  cat /etc/*-release
+   41  ansible all -u vagrant -m command -a 'cat /etc/*-release' -k  
+   42  cat /etc/*-release
+   43  ansible all -u vagrant -m shell -a 'cat /etc/*-release' -k  
+   44  cat /etc/os-release 
+   45  ansible all -u vagrant -m command -a 'cat /etc/os-release' -k  
+   46  ls
+   47  vi inventory 
+   48  ansible ansible -u vagrant -m command -a 'cat /etc/os-release'   
+   49  ansible ansible -u vagrant -m command -a 'cat /etc/os-release' -k 
+   50  ansible ansible -u vagrant -m command -a 'cat /etc/os-release'   
+   51  cat inventory 
+   52  vi inventory 
+   53  ansible ansible -u vagrant -m command -a 'cat /etc/os-release'   -k 
+   54  ls
+   55  cd ..
+   56  ls
+   57  cd 01-Inventory/
+   58  ls
+   59  vim inventory 
+   60  ansible all -u vagrant -m command -a 'cat /etc/os-release'   -k 
+   61  vim inventory 
+   62  ansible all -u vagrant -m command -a 'cat /etc/os-release'   -k 
+   63  ls
+   64  vi inventory 
+   65  ansible dc -u vagrant -m command -a 'cat /etc/os-release'   -k 
+   66  ansible dc -u vagrant -m ping   -k 
+   67  cat /etc/ansible/hosts 
+   68  ls
+   69  vi inventory 
+   70  ansible dc -u vagrant -m ping   -k 
+   71  ld
+   72  ls
+   73  rm 1
+   74  vi inventory 
+   75  ansible dc -m ping 
+   76  vi inventory 
+   77  ansible dc -m ping 
+   78  vi inventory 
+   79  ansible dc -m ping 
+   80  vi inventory 
+   81  ansible dc -m ping 
+   82  ls
+   83  cd ..
+   84  ls
+   85  history > Day4_Ansible.txt

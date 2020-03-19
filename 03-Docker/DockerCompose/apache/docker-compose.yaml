@@ -1,0 +1,8 @@
+my-test:
+  image: myapache:v1
+  ports:
+    - '8095:80'
+my-prod:
+  image: myapache:v2
+  ports:
+    - '8096:80'
