@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  name: Excute Common Tasks 
+  become: yes 
+  roles:
+  - server-common
+
+- include: webserver.yaml
+  tags: web
+- include: dbserver.yaml
+  tags: db
+- include: tomcat.yaml
+  tags: tom

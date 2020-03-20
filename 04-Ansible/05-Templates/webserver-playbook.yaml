@@ -1,0 +1,43 @@
+---
+
+- hosts: webserver
+  name: My Apache Server Installation
+  become: yes
+
+  vars:
+    doc_root: "/var/www/html"
+    username: "PD" 
+
+  tasks: 
+  - name: Install Apache Packages
+    apt: name=apache2 state=present
+    when: ansible_os_family == "Debian"
+
+  - name: Start the Apache Service
+    service: name=apache2 state=started
+    when: ansible_os_family == "Debian"
+
+  - name: Install Apache Packages on CentOS
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Start the Apache Service on CentOS
+    service: name=httpd state=started
+    when: ansible_os_family == "RedHat"
+
+  - name: Deploy Sample Index Web Page
+    copy: src=templates/index.html dest={{doc_root}}/index.html
+
+  - name: Download Mario Background Image
+    get_url: url=http://www.mariomayhem.com/downloads/wallpapers/7/nsmb_wp7_1280.jpg dest={{doc_root}}/mario.jpg mode=0755
+
+  - name: Deploy Info Dynamic Web Page
+    template: src=templates/info.j2 dest={{doc_root}}/info.html
+
+- hosts: dbserver
+  name: Getting Ready for GIT Client
+  become: yes 
+
+  tasks: 
+  - name: Install GIT Packages
+    apt: name=git state=present

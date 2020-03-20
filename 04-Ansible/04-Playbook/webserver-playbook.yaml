@@ -1,0 +1,32 @@
+---
+
+- hosts: webserver
+  name: My Apache Server Installation
+  become: yes 
+
+  tasks: 
+  - name: Install Apache Packages
+    apt: name=apache2 state=present
+
+  - name: Start the Apache Service
+    service: name=apache2 state=started
+
+  - name: Check OS Release
+    command: 'cat /etc/os-release'
+
+- hosts: ansible
+  name: Getting Ready for Test Connection
+  become: yes
+
+  tasks:
+  - name: Test Connection
+    ping: 
+
+
+- hosts: dbserver
+  name: Getting Ready for GIT Client
+  become: yes 
+
+  tasks: 
+  - name: Install GIT Packages
+    apt: name=git state=present

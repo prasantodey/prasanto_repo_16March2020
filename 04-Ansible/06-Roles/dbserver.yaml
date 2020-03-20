@@ -1,0 +1,7 @@
+---
+
+- hosts: dbserver
+  name: Git Role Installation
+  become: yes
+  roles:
+  - git

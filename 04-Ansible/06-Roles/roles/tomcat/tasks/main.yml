@@ -1,0 +1,26 @@
+---
+# tasks file for tomcat
+
+- name: Create Tomcat Home Dir. 
+  file: path={{doc_tomcat}} state=directory
+
+- name: Install Java 1.8 JDK
+  apt: name=default-jdk state=present
+
+- name: Download Tomcat Tarball. 
+  get_url: url=http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.53/bin/apache-tomcat-8.5.53.tar.gz dest=/opt/SP/apps/tomcat.tar.gz mode=0755
+
+- name: Extract Tomcat Tarball
+  command: "tar zxf /opt/SP/apps/tomcat.tar.gz -C {{doc_tomcat}} --strip-components 1"
+
+- name: Create Tomcat Home Dir. 
+  file: path={{doc_tomcat}}/webapps/apps state=directory
+
+- name: Copy Index Page File
+  template: src=templates/info.j2 dest={{doc_tomcat}}/webapps/apps/info.html mode=0644
+  notify:
+  - Restart Tomcat
+
+- name: Copy Petclinic War File
+  copy: src=templates/petclinic.war dest={{doc_tomcat}}/webapps/ mode=0644
+

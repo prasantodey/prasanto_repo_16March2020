@@ -1,0 +1,7 @@
+---
+
+- hosts: webserver
+  name: My Apache Server Installation
+  become: yes
+  roles:
+  - webserver
